@@ -824,14 +824,15 @@ function safeShowModal(dialogEl) {
 
 function safeClose(dialogEl) {
   if (!dialogEl) return;
+
   try {
     if (typeof dialogEl.close === 'function') {
       dialogEl.close();
-      return;
     }
   } catch (e) {
     // fall through to fallback
   }
+
   dialogEl.removeAttribute('open');
   dialogEl.style.display = 'none';
 }
